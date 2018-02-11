@@ -3,6 +3,7 @@ function onReady() {
   const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
 
+
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
 
@@ -29,7 +30,46 @@ function onReady() {
 
     //empty the input
     newToDoText.value = '';
+
+    //delete button
+    let spanDelete = document.createElement("span");
+    spanDelete.setAttribute("id", newToDoText.id);
+    spanDelete.setAttribute("class", "delete");
+    spanDelete.innerHTML = "&nbsp;&#10007;&nbsp;";
+
+    spanDelete.onclick = deleteItem;
+
+    newLi.appendChild(spanDelete);
+
+    function deleteItem(e) {
+    var id = e.target.id;
+    console.log("delete an item: " + id);
+
+    let li = e.target.parentElement;
+    let ul = document.getElementById("toDoList");
+    ul.removeChild(li);
+
+    }
+
+
+
+    //create delete button
+    //rmvBtn.addEventListener('submit', function() {
+      //let rmvCheckBoxes = document.getElementByInput("checkbox");
+        //for(var i = 0; i < rmvCheckBoxes.length; i++) {
+          //if(rmvCheckBoxes[i].checked) {
+            //removeElm(rmvCheckBoxes[i]);
+          //}
+        //}
+    //});
+    //function removeElm(elm) {
+      //elm.parentElement.removeElm(elm);
+    //}
+
   });
+
+
+
 }
 
 

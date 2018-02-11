@@ -1,0 +1,10 @@
+ul#todoList li {
+    position: relative;
+}
+
+ul#todoList li span.delete {
+    display: inline-block;
+    position: absolute;
+    right: 50px;
+    cursor: pointer;
+}
